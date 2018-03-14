@@ -4,16 +4,20 @@
 @Grab('org.sonatype.nexus:nexus-rest-client:3.9.0-01')
 @Grab('org.sonatype.nexus:nexus-rest-jackson2:3.9.0-01')
 @Grab('org.sonatype.nexus:nexus-script:3.9.0-01')
-@Grab(group='org.jboss.spec.javax.servlet', module='jboss-servlet-api_3.1_spec', version='1.0.0.Final')
-@Grab(group='org.jboss.spec.javax.ws.rs', module='jboss-jaxrs-api_2.0_spec', version='1.0.0.Final')
-@Grab(group='org.jboss.spec.javax.annotation', module='jboss-annotations-api_1.2_spec', version='1.0.0.Final')
-@Grab(group='javax.activation', module='activation', version='1.1.1')
-@Grab(group='net.jcip', module='jcip-annotations', version='1.0')
-@Grab(group='org.jboss.logging', module='jboss-logging-annotations', version='2.0.1.Final')
-@Grab(group='org.jboss.logging', module='jboss-logging-processor', version='2.0.1.Final')
-@Grab(group='com.sun.xml.bind', module='jaxb-impl', version='2.2.11')
-@Grab(group='com.sun.mail', module='javax.mail', version='1.5.6')
-@Grab(group='org.apache.james', module='apache-mime4j', version='0.6')
+@Grab('org.jboss.spec.javax.servlet:jboss-servlet-api_3.1_spec:1.0.0.Final')
+@Grab('com.fasterxml.jackson.core:jackson-core:2.8.6')
+@Grab('com.fasterxml.jackson.core:jackson-databind:2.8.6')
+@Grab('com.fasterxml.jackson.core:jackson-annotations:2.8.6')
+@Grab('com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.6')
+@Grab('org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.0_spec:1.0.1.Beta1')
+@Grab('org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.Final')
+@Grab('javax.activation:activation:1.1.1')
+@Grab('net.jcip:jcip-annotations:1.0')
+@Grab('org.jboss.logging:jboss-logging-annotations:2.0.1.Final')
+@Grab('org.jboss.logging:jboss-logging-processor:2.0.1.Final')
+@Grab('com.sun.xml.bind:jaxb-impl:2.2.7')
+@Grab('com.sun.mail:javax.mail:1.5.6')
+@Grab('org.apache.james:apache-mime4j:0.6')
 @GrabExclude('org.codehaus.groovy:groovy-all')
 import javax.ws.rs.NotFoundException
 
@@ -41,7 +45,7 @@ def file = new File(options.f)
 assert file.exists()
 
 def host = options.h ?: 'http://localhost:8081'
-def resource = 'service'
+def resource = 'service/rest'
 
 ScriptClient scripts = new ResteasyClientBuilder()
     .build()
@@ -70,4 +74,4 @@ else {
   scripts.edit(name, script)
 }
 
-println "Stored scripts are now: ${scripts.browse().collect { it.name }}" 
+println "Stored scripts are now: ${scripts.browse().collect { it.name }}"
