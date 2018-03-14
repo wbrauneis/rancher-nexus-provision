@@ -1,9 +1,9 @@
 /**
  * An example script that handles adding or updating a groovy script via the REST API.
  */
-@Grab('org.sonatype.nexus:nexus-rest-client:3.2.1-01')
-@Grab('org.sonatype.nexus:nexus-rest-jackson2:3.2.1-01')
-@Grab('org.sonatype.nexus:nexus-script:3.2.1-01')
+@Grab('org.sonatype.nexus:nexus-rest-client:3.9.0-01')
+@Grab('org.sonatype.nexus:nexus-rest-jackson2:3.9.0-01')
+@Grab('org.sonatype.nexus:nexus-script:3.9.0-01')
 @Grab(group='org.jboss.spec.javax.servlet', module='jboss-servlet-api_3.1_spec', version='1.0.0.Final')
 @Grab(group='org.jboss.spec.javax.ws.rs', module='jboss-jaxrs-api_2.0_spec', version='1.0.0.Final')
 @Grab(group='org.jboss.spec.javax.annotation', module='jboss-annotations-api_1.2_spec', version='1.0.0.Final')
